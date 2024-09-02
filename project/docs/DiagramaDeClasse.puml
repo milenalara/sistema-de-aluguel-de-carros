@@ -1,0 +1,71 @@
+@startuml Diagrama
+skinparam classAttributeIconSize 0
+
+Usuario <|-- Agente
+Usuario <|-- Cliente
+Agente <|-- Empresa
+Agente <|-- Banco
+Aluguel -- Contrato
+Aluguel -- Cliente
+Aluguel -- Automovel
+Aluguel -- Banco
+Cliente -- Empregador
+
+class Usuario {
+    -id : Long
+    -login: String
+    -senha: String
+    +void fazerLogin()
+    +Boolean registrar()
+}
+
+class Cliente {
+    -rg : String
+    -cpf : String
+    -nome : String
+    -endereco : String
+    -profissao : String
+    -entidadeEmpregadora : String
+    -rendimentosAuferidos : Double[3]
+    +void createAluguel()
+    +void alterAluguel()
+    +Aluguel readAluguel()
+    +void deleteAluguel()
+}
+
+class Agente {
+    -cnpj : String
+    +analisarPedidoAluguel() : Boolean
+    +modificarPedidoAluguel() : Boolean
+}
+
+class Empregador {
+
+}
+
+class Empresa {
+}
+
+class Banco {
+}
+
+class Aluguel {
+    -id : Long
+    -aprovado : Boolean
+}
+
+class Contrato {
+    -id : Long
+}
+
+class Automovel {
+    -id : Long
+    -matricula : String
+    -ano : String
+    -marca : String
+    -modelo : String
+    -placa : String
+    -proprietario : User
+}
+
+@enduml
