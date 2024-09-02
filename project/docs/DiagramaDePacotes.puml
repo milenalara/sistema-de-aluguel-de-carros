@@ -1,0 +1,11 @@
+@startuml Pacotes MVC
+
+package module
+package view 
+package controler
+
+module --> controler
+module --> view
+
+controler --> view
+view --> controler
