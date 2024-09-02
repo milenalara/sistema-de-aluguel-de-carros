@@ -1,15 +1,27 @@
-# Nome do projeto
-Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
+# Sistema de Aluguel de Carros
+
+Este projeto é um protótipo de aplicação de sistema de aluguel de carros, desenvolvido em interface de linha de comando utilizando a linguagem Java.
+
+Trata-se de um projeto acadêmico desenvolvido para a disciplina de Laboratório de Desenvolvimento de Software, do curso de Engenharia de Software da Pontifícia Universidade Católica de Minas Gerais (PUC Minas).
 
 ## Integrantes
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Gustavo Menezes Barbosa 
+* Pedro Henrique Dias Camara 
+* Milena Lara Reis Ferreira
 
 ## Orientadores
-* Nome completo do professor 1
-* Nome completo do professor 2
+* Cristiano de Macêdo Neto 
+
+## Descrição do Problema
+
+## Requisitos funcionais  
+  
+## Requisitos não funcionais  
+
+## Diagrama de Caso de Uso
+
+## Histórias de Usuário
+
+## Diagrama de Classe
 
 ## Instruções de utilização
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
