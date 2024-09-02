@@ -1,0 +1,16 @@
+@startuml
+scale 2
+left to right direction
+actor Cliente
+actor Agente
+
+usecase (Gerenciar Aluguel) as GerA
+usecase (Modificar pedido) as ModP
+usecase (Avaliar pedidos) as AvaliarP
+
+Cliente -- GerA
+
+Agente -- ModP
+Agente -- AvaliarP
+
+@enduml
