@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Aluguel</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <form action="#" th:action="@{/criarCliente}" th:object="${cliente}" method="post">
+        <label for="nome">Nome</label>
+        <input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
+        <label for="id">Id</label>
+        <input type="number" th:field="*{id}" id="id" placeholder="id">
+        <label for="rg">RG</label>
+        <input type="text" th:field="*{rg}" id="rg" placeholder="rg">
+        <label for="cpf">CPF</label>
+        <input type="text" th:field="*{cpf}" id="cpf" placeholder="cpf">
+        <label for="endereco">Endereco</label>
+        <input type="text" th:field="*{endereco}" id="endereco" placeholder="Endereco">
+        <label for="profissao">Profissao</label>
+        <input type="text" th:field="*{profissao}" id="profissao" placeholder="profissao">
+        <label for="empregador">empregador</label>
+        <input type="text" th:field="*{empregador}" id="empregador" placeholder="empregador">
+        <label for="rendimentos">rendimentos</label>
+        <input type="text" th:field="*{rendimentos}" id="rendimentos" placeholder="rendimentos">
+
+        <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+        <input type="submit" value="Add cliente">   
+    </form>
+</body>
+</html>
