@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Automovel</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <form action="#" th:action="@{/criarAutomovel}" th:object="${automovel}" method="post">
+        <label for="id">Id</label>
+        <input type="number" th:field="*{id}" id="id" placeholder="id">
+        <label for="matricula">matricula</label>
+        <input type="text" th:field="*{matricula}" id="matricula" placeholder="matricula">
+        <label for="ano">ano</label>
+        <input type="number" th:field="*{ano}" id="ano" placeholder="ano">
+        <label for="modelo">modelo</label>
+        <input type="text" th:field="*{modelo}" id="modelo" placeholder="modelo">
+        <label for="placa">placa</label>
+        <input type="text" th:field="*{placa}" id="placa" placeholder="placa">
+
+
+        <span th:if="${#fields.hasErrors('matricula')}" th:errors="*{matricula}"></span>
+        <input type="submit" value="Add automovel">   
+    </form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Automovel</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+    <div th:switch="${automoveis}">
+        <h2 th:case="null">Não há automoveis</h2>
+            <div th:case="*">
+                <h2>Automoveis</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Matricula</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="automovel : ${automoveis}">
+                        <td th:text="${automovel.id}"></td>
+                        <td th:text="${automovel.matricula}"></td>
+                        <td><a th:href="@{automovelEdit/{id}(id=${automovel.id})}">Edit</a></td>
+                        <td><a th:href="@{automovelDelete/{id}(id=${automovel.id})}">Delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>      
+        <p><a href="/criarAutomovel">Novo automovel</a></p>
+    </div>
+    
+</body>
+</html>
