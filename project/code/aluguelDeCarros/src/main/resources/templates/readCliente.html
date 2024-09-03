@@ -33,13 +33,13 @@
                         <td th:text="${cliente.profissao}"></td>
                         <td th:text="${cliente.empregador}"></td>
                         <td th:text="${cliente.rendimentos}"></td>
-                        <td><a th:href="@{/edit/{id}(id=${cliente.id})}">Edit</a></td>
-                        <td><a th:href="@{/delete/{id}(id=${cliente.id})}">Delete</a></td>
+                        <td><a th:href="@{clienteEdit/{id}(id=${cliente.id})}">Edit</a></td>
+                        <td><a th:href="@{clienteDelete/{id}(id=${cliente.id})}">Delete</a></td>
                     </tr>
                 </tbody>
             </table>
         </div>      
-        <p><a href="/criarCliente">Add a new user</a></p>
+        <p><a href="/criarCliente">Novo cliente</a></p>
     </div>
     
 </body>

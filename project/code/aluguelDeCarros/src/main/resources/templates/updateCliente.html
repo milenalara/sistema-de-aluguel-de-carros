@@ -7,7 +7,7 @@
 <body>
 
     <form action="#" 
-    th:action="@{/update/{id}(id=${cliente.id})}" 
+    th:action="@{clienteUpdate/{id}(id=${cliente.id})}" 
     th:object="${cliente}" 
     method="post">
       <label for="name">Name</label>

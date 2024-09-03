@@ -29,16 +29,16 @@ public class ClienteController {
         }
 
         clienteRepository.save(cliente);
-        return "redirect:/index";
+        return "redirect:/readCliente";
     }
 
-    @GetMapping("/index")
+    @GetMapping("/readCliente")
     public String showUserList(Model model) {
         model.addAttribute("clientes", clienteRepository.findAll());
-        return "index";
+        return "readCliente";
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("/clienteEdit/{id}")
     public String showUpdateForm(@PathVariable("id") long id, Model model) {
         Cliente cliente = clienteRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
@@ -47,7 +47,7 @@ public class ClienteController {
         return "updateCliente";
     }
 
-    @PostMapping("/update/{id}")
+    @PostMapping("/clienteUpdate/{id}")
     public String updateCliente(@PathVariable("id") long id, @Valid Cliente cliente,
             BindingResult result, Model model) {
         if (result.hasErrors()) {
@@ -56,15 +56,15 @@ public class ClienteController {
         }
 
         clienteRepository.save(cliente);
-        return "redirect:/index";
+        return "redirect:/readCliente";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/clienteDelete/{id}")
     public String deleteCliente(@PathVariable("id") long id, Model model) {
         Cliente cliente = clienteRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
         clienteRepository.delete(cliente);
-        return "redirect:/index";
+        return "redirect:/readCliente";
     }
 
 }
