@@ -29,4 +29,66 @@ public class Pedido {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "automovel.id")
     private Automovel automovel;
+
+
+    public long getId() {
+        return id;
+    }
+
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+
+    public boolean isConfirmado() {
+        return confirmado;
+    }
+
+
+    public void setConfirmado(boolean confirmado) {
+        this.confirmado = confirmado;
+    }
+
+
+    public boolean isCredito() {
+        return credito;
+    }
+
+
+    public void setCredito(boolean credito) {
+        this.credito = credito;
+    }
+
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+
+    public Agente getAgente() {
+        return agente;
+    }
+
+
+    public void setAgente(Agente agente) {
+        this.agente = agente;
+    }
+
+
+    public Automovel getAutomovel() {
+        return automovel;
+    }
+
+
+    public void setAutomovel(Automovel automovel) {
+        this.automovel = automovel;
+    }
+
+    
 }

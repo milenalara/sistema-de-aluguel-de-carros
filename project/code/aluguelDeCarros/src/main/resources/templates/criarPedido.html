@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Aluguel</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <form action="#" th:action="@{/criarPedido}" th:object="${pedido}" method="post">
+        <label for="confirmado">Confirmado</label>
+        <input type="checkbox" th:field="*{confirmado}" id="confirmado" placeholder="confirmado">
+        <label for="credito">Utiliza credito</label>
+        <input type="checkbox" th:field="*{credito}" id="credito" placeholder="credito">
+
+        <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+        <input type="submit" value="Add pedido">   
+    </form>
+</body>
+</html>
