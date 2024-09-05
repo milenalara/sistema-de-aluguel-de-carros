@@ -4,11 +4,6 @@ Este projeto é um protótipo de aplicação de sistema de aluguel de carros, de
 
 Trata-se de um projeto acadêmico desenvolvido para a disciplina de Laboratório de Desenvolvimento de Software, do curso de Engenharia de Software da Pontifícia Universidade Católica de Minas Gerais (PUC Minas).
 
-Eu como usuário quero criar, modificar, atualizar e cancelar os pedidos para conseguir alugar meu veículo.
-
-Eu como agente quero avaliar e modificar pedidos para gerenciar os alugueis possíveis, assim como registrar os automóveis. 
-
-
 ## Integrantes
 * Gustavo Menezes Barbosa 
 * Pedro Henrique Dias Camara 
@@ -26,6 +21,10 @@ Eu como agente quero avaliar e modificar pedidos para gerenciar os alugueis poss
 ## Diagrama de Caso de Uso
 
 ## Histórias de Usuário
+
+Eu como usuário quero criar, modificar, atualizar e cancelar os pedidos para conseguir alugar meu veículo.
+
+Eu como agente quero avaliar e modificar pedidos para gerenciar os alugueis possíveis, assim como registrar os automóveis. 
 
 ## Diagrama de Classe
 
