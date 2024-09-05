@@ -1,22 +1,22 @@
 @startuml Diagrama
 skinparam classAttributeIconSize 0
 
-Usuario <|-- Agente
-Usuario <|-- Cliente
-Agente <|-- Empresa
-Agente <|-- Banco
-Aluguel -- Contrato
-Aluguel -- Cliente
-Aluguel -- Automovel
-Aluguel -- Banco
-Cliente -- Empregador
+Usuario <|.. Agente
+Usuario <|.. Cliente
+Aluguel "1" *-- "1" Contrato : contém
+Aluguel "1" -- "1" Cliente : contém
+Aluguel "1" o-- "1" Automovel : contém
+Aluguel "*" o-- "1" Agente : contém
+Cliente "*" --o "3" Empregador : emprega
+TipoAgente <|-- Agente
 
-class Usuario {
+interface Usuario {
     -id : Long
     -login: String
     -senha: String
-    +void fazerLogin()
-    +Boolean registrar()
+    +login() : void
+    +logout() : void
+    +registrar() : Boolean
 }
 
 class Cliente {
@@ -27,26 +27,28 @@ class Cliente {
     -profissao : String
     -entidadeEmpregadora : String
     -rendimentosAuferidos : Double[3]
-    +void createAluguel()
-    +void alterAluguel()
-    +Aluguel readAluguel()
-    +void deleteAluguel()
+    +solicitarAluguel() : void
+    +editarPedidoAluguel() : void
+    +visualizarPedidoAluguel() : Aluguel
+    +excluirPedidoAluguel() : void
 }
 
 class Agente {
     -cnpj : String
+    -tipo : TipoAgente
     +analisarPedidoAluguel() : Boolean
     +modificarPedidoAluguel() : Boolean
 }
 
+enum TipoAgente{
+    BANCO,
+    EMPRESA
+}
+
 class Empregador {
-
-}
-
-class Empresa {
-}
-
-class Banco {
+    -id: Long
+    -cpnj : String
+    -nome : String
 }
 
 class Aluguel {
