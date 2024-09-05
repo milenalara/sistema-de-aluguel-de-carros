@@ -15,12 +15,14 @@
                         <tr>
                             <th>Id</th>
                             <th>Matricula</th>
+                            <th>Proprietario</th>
                         </tr>
                     </thead>
                     <tbody>
                     <tr th:each="automovel : ${automoveis}">
                         <td th:text="${automovel.id}"></td>
                         <td th:text="${automovel.matricula}"></td>
+                        <td th:text="${automovel.prorietario}"></td>
                         <td><a th:href="@{automovelEdit/{id}(id=${automovel.id})}">Edit</a></td>
                         <td><a th:href="@{automovelDelete/{id}(id=${automovel.id})}">Delete</a></td>
                     </tr>
