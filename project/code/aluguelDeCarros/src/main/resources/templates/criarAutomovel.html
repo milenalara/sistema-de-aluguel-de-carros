@@ -17,8 +17,9 @@
         <label for="placa">placa</label>
         <input type="text" th:field="*{placa}" id="placa" placeholder="placa">
         <select name="prorietario">
-            <option th:each="prorietarioOpt : ${T(br.pucminas.aluguelDeCarros.thymeleaf.model.Prorietario).values()}" 
+            <option th:each="prorietarioOpt : ${T(br.pucminas.aluguelDeCarros.Proprietario).values()}" 
                 th:value="${prorietarioOpt}" th:text="${prorietarioOpt}"></option>
+
         </select>
 
 

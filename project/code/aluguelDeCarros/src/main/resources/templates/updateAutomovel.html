@@ -10,8 +10,6 @@
     th:action="@{automovelUpdate/{id}(id=${automovel.id})}" 
     th:object="${automovel}" 
     method="post">
-      <label for="name">Name</label>
-      <input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
       <label for="id">Id</label>
       <input type="number" th:field="*{id}" id="id" placeholder="id">
       <label for="ano">ano</label>
@@ -20,11 +18,11 @@
       <input type="number" th:field="*{matricula}" id="matricula" placeholder="matricula">
       <label for="placa">placa</label>
       <input type="number" th:field="*{placa}" id="placa" placeholder="placa">
+      <option th:each="prorietarioOpt : ${T(br.pucminas.aluguelDeCarros.Proprietario).values()}" 
+      th:value="${prorietarioOpt}" th:text="${prorietarioOpt}"></option>
 
 
-
-
-      <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+      <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
       <input type="submit" value="Update automovel">   
   </form>
 </body>
