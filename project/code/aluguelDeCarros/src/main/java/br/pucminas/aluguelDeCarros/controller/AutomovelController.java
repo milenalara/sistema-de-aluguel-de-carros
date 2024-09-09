@@ -1,5 +1,7 @@
-package br.pucminas.aluguelDeCarros;
+package br.pucminas.aluguelDeCarros.controller;
 
+import br.pucminas.aluguelDeCarros.model.Automovel;
+import br.pucminas.aluguelDeCarros.repository.AutomovelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

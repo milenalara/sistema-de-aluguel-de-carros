@@ -1,4 +1,4 @@
-package br.pucminas.aluguelDeCarros;
+package br.pucminas.aluguelDeCarros.model;
 
 import jakarta.persistence.*;
 import java.util.ArrayList;
