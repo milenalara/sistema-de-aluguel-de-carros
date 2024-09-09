@@ -54,6 +54,10 @@ class Empregador {
 class Aluguel {
     -id : Long
     -aprovado : Boolean
+    -agente : Agente
+    -cliente : Cliente
+    -automovel : Automovel
+    -contrato : Contrato
 }
 
 class Contrato {
