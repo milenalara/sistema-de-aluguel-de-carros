@@ -1,4 +1,4 @@
-package br.pucminas.aluguelDeCarros;
+package br.pucminas.aluguelDeCarros.model;
 
 
 public enum Proprietario {

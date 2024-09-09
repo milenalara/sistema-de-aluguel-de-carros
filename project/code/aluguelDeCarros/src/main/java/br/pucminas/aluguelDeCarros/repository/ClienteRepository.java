@@ -1,5 +1,6 @@
-package br.pucminas.aluguelDeCarros;
+package br.pucminas.aluguelDeCarros.repository;
 
+import br.pucminas.aluguelDeCarros.model.Cliente;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
