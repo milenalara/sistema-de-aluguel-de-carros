@@ -10,6 +10,10 @@
         <input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
         <label for="id">Id</label>
         <input type="number" th:field="*{id}" id="id" placeholder="id">
+        <label for="login">Login</label>
+        <input type="text" th:field="*{login}" id="login" placeholder="Login">
+        <label for="senha">Senha</label>
+        <input type="text" th:field="*{senha}" id="senha" placeholder="Senha">
 
         <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
         <input type="submit" value="Add agente">   

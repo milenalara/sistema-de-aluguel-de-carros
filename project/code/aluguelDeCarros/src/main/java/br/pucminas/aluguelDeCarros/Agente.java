@@ -6,25 +6,13 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "agente")
-public class Agente {
-
-    @Id
-    @Column(name = "id", nullable = false)
-    private long id;
+public class Agente extends Usuario{
 
     @Column(name = "nome", length = 50, nullable = false)
     private String nome;
 
     @OneToMany(mappedBy = "agente", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Pedido> pedidos = new ArrayList<>();
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;

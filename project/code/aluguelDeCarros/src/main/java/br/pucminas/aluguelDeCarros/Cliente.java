@@ -6,11 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "cliente")
-public class Cliente {
-    
-    @Id
-    @Column(name = "id", nullable = false)
-    private long id;
+public class Cliente extends Usuario{
 
     @Column(name = "rg",length = 50, nullable = false)
     private String rg;
@@ -35,14 +31,6 @@ public class Cliente {
 
     @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Pedido> pedidos = new ArrayList<>();
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public long getId() {
-        return id;
-    }
 
     public String getNome() {
         return nome;
