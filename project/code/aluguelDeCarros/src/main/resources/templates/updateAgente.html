@@ -10,14 +10,14 @@
     th:action="@{agenteUpdate/{id}(id=${agente.id})}" 
     th:object="${agente}" 
     method="post">
-      <label for="name">Name</label>
-      <input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
+      <label for="cpnj">CPNJ</label>
+      <input type="text" th:field="*{cpnj}" id="cpnj" placeholder="cpnj">
       <label for="id">Id</label>
       <input type="number" th:field="*{id}" id="id" placeholder="id">
 
 
-      <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
-      <input type="submit" value="Update cliente">   
+      <span th:if="${#fields.hasErrors('cpnj')}" th:errors="*{cpnj}"></span>
+      <input type="submit" value="Update agente">   
   </form>
 </body>
 </html>

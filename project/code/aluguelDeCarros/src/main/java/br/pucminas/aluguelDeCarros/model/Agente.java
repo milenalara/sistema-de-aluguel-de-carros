@@ -8,19 +8,14 @@ import jakarta.persistence.*;
 @Table(name = "agente")
 public class Agente extends Usuario{
 
-    @Column(name = "nome", length = 50, nullable = false)
-    private String nome;
+    @Column(name = "cpnj", length = 50, nullable = false)
+    private String cpnj;
+
+    @Enumerated(EnumType.STRING)
+    private TipoAgente tipo;
 
     @OneToMany(mappedBy = "agente", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Pedido> pedidos = new ArrayList<>();
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
     public List<Pedido> getPedidos() {
         return pedidos;
@@ -30,5 +25,22 @@ public class Agente extends Usuario{
         this.pedidos = pedidos;
     }
 
+    public TipoAgente getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoAgente tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getCpnj() {
+        return cpnj;
+    }
+
+    public void setCpnj(String cpnj) {
+        this.cpnj = cpnj;
+    }
+
+    
     
 }

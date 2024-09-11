@@ -6,16 +6,25 @@
 </head>
 <body>
     <form action="#" th:action="@{/criarAgente}" th:object="${agente}" method="post">
-        <label for="nome">Nome</label>
-        <input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
+        <label for="login">Login</label>
+        <input type="text" th:field="*{login}" id="login" placeholder="Login">
+        <label for="senha">Senha</label>
+        <input type="text" th:field="*{senha}" id="senha" placeholder="Senha">
+        <label for="cpnj">CPNJ</label>
+        <input type="text" th:field="*{cpnj}" id="cpnj" placeholder="CPNJ">
         <label for="id">Id</label>
         <input type="number" th:field="*{id}" id="id" placeholder="id">
         <label for="login">Login</label>
         <input type="text" th:field="*{login}" id="login" placeholder="Login">
         <label for="senha">Senha</label>
         <input type="text" th:field="*{senha}" id="senha" placeholder="Senha">
+        <select name="tipoAgente">
+                <option th:each="tipoOpt : ${T(br.pucminas.aluguelDeCarros.model.TipoAgente).values()}" 
+                    th:value="${tipoOpt}" th:text="${tipoOpt}"></option>
+    
+            </select>
 
-        <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+        <span th:if="${#fields.hasErrors('cpnj')}" th:errors="*{cpnj}"></span>
         <input type="submit" value="Add agente">   
     </form>
 </body>

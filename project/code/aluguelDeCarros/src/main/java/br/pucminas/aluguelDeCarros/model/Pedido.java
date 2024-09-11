@@ -13,8 +13,8 @@ public class Pedido {
     @Column(name = "confirmado", nullable = false)
     private boolean confirmado;
 
-    @Column(name = "credito", nullable = false)
-    private boolean credito;
+    @Column(name = "contrato",length = 50, nullable = false)
+    private String contrato;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente.id")
@@ -50,17 +50,6 @@ public class Pedido {
         this.confirmado = confirmado;
     }
 
-
-    public boolean isCredito() {
-        return credito;
-    }
-
-
-    public void setCredito(boolean credito) {
-        this.credito = credito;
-    }
-
-
     public Cliente getCliente() {
         return cliente;
     }
@@ -88,6 +77,16 @@ public class Pedido {
 
     public void setAutomovel(Automovel automovel) {
         this.automovel = automovel;
+    }
+
+
+    public String getContrato() {
+        return contrato;
+    }
+
+
+    public void setContrato(String contrato) {
+        this.contrato = contrato;
     }
 
     

@@ -3,10 +3,10 @@ skinparam classAttributeIconSize 0
 
 Usuario <|.. Agente
 Usuario <|.. Cliente
-Aluguel "1" *-- "1" Contrato : contém
-Aluguel "1" -- "1" Cliente : contém
-Aluguel "1" o-- "1" Automovel : contém
-Aluguel "*" o-- "1" Agente : contém
+Pedido "1" *-- "1" Contrato : contém
+Pedido "1" -- "1" Cliente : contém
+Pedido "1" o-- "1" Automovel : contém
+Pedido "*" o-- "1" Agente : contém
 Cliente "*" --o "3" Empregador : emprega
 TipoAgente <|-- Agente
 
@@ -25,19 +25,19 @@ class Cliente {
     -nome : String
     -endereco : String
     -profissao : String
-    -entidadeEmpregadora : String
-    -rendimentosAuferidos : Double[3]
-    +solicitarAluguel() : void
-    +editarPedidoAluguel() : void
-    +visualizarPedidoAluguel() : Aluguel
-    +excluirPedidoAluguel() : void
+    -empregador : String
+    -rendimentos : String
+    +solicitarPedido() : void
+    +editarPedidoPedido() : void
+    +visualizarPedidoPedido() : Pedido
+    +excluirPedidoPedido() : void
 }
 
 class Agente {
     -cnpj : String
     -tipo : TipoAgente
-    +analisarPedidoAluguel() : Boolean
-    +modificarPedidoAluguel() : Boolean
+    +analisarPedidoPedido() : Boolean
+    +modificarPedidoPedido() : Boolean
 }
 
 enum TipoAgente{
@@ -47,21 +47,17 @@ enum TipoAgente{
 
 class Empregador {
     -id: Long
-    -cpnj : String
     -nome : String
+    -cpnj : String
 }
 
-class Aluguel {
+class Pedido {
     -id : Long
     -aprovado : Boolean
     -agente : Agente
     -cliente : Cliente
     -automovel : Automovel
-    -contrato : Contrato
-}
-
-class Contrato {
-    -id : Long
+    -contrato : String
 }
 
 class Automovel {

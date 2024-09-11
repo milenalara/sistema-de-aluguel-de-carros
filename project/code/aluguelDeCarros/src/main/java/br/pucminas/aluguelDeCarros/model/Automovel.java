@@ -1,8 +1,7 @@
 package br.pucminas.aluguelDeCarros.model;
 
 import jakarta.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Entity
 @Table(name = "automovel")
@@ -21,14 +20,11 @@ public class Automovel {
     @Column(name = "modelo", length = 50, nullable = false)
     private String modelo;
 
+    @Column(name = "marca", length = 50, nullable = false)
+    private String marca;
+
     @Column(name = "placa", length = 50, nullable = false, unique = true)
     private String placa;
-
-    @Enumerated(EnumType.STRING)
-    private Proprietario proprietario;
-
-    @OneToMany(mappedBy = "automovel", fetch = FetchType.LAZY, orphanRemoval = true)
-    private List<Pedido> pedidos = new ArrayList<>();
 
     public long getId() {
         return id;
@@ -70,21 +66,15 @@ public class Automovel {
         this.placa = placa;
     }
 
-    public Proprietario getProprietario() {
-        return proprietario;
+    public String getMarca() {
+        return marca;
     }
 
-    public void setProprietario(Proprietario proprietario) {
-        this.proprietario = proprietario;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
-    public List<Pedido> getPedidos() {
-        return pedidos;
-    }
 
-    public void setPedidos(List<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
-
+    
     
 }

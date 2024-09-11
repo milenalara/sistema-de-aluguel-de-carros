@@ -14,13 +14,13 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Nome</th>
+                            <th>CPNJ</th>
                         </tr>
                     </thead>
                     <tbody>
                     <tr th:each="agente : ${agentes}">
                         <td th:text="${agente.id}"></td>
-                        <td th:text="${agente.nome}"></td>
+                        <td th:text="${agente.cpnj}"></td>
                         <td><a th:href="@{agenteEdit/{id}(id=${agente.id})}">Edit</a></td>
                         <td><a th:href="@{agenteDelete/{id}(id=${agente.id})}">Delete</a></td>
                     </tr>

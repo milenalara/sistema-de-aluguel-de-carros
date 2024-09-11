@@ -16,7 +16,7 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Credito</th>
+                        <th>Contrato</th>
                         <th>Confirmado</th>
 
                     </tr>
@@ -24,7 +24,7 @@
                 <tbody>
                     <tr th:each="pedido : ${pedidos}">
                         <td th:text="${pedido.id}"></td>
-                        <td th:text="${pedido.credito}"></td>
+                        <td th:text="${pedido.contrato}"></td>
                         <td th:text="${pedido.confirmado}"></td>
 
                         <td><a th:href="@{pedidoEdit/{id}(id=${pedido.id})}">Edit</a></td>

@@ -6,10 +6,13 @@
 </head>
 <body>
     <form action="#" th:action="@{/criarPedido}" th:object="${pedido}" method="post">
+
+        <label for="id">Id</label>
+        <input type="number" th:field="*{id}" id="id" placeholder="id">
         <label for="confirmado">Confirmado</label>
         <input type="checkbox" th:field="*{confirmado}" id="confirmado" placeholder="confirmado">
-        <label for="credito">Utiliza credito</label>
-        <input type="checkbox" th:field="*{credito}" id="credito" placeholder="credito">
+        <label for="contrato">Contrato</label>
+        <input type="text" th:field="*{contrato}" id="contrato" placeholder="contrato">
 
         <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
         <input type="submit" value="Add pedido">   
