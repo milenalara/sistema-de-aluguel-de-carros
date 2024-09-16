@@ -37,9 +37,11 @@ O sistema pode ser subdividido em dois subsistemas: um para gestão de pedidos e
 
 ## Histórias de Usuário
 
-Eu como usuário quero criar, modificar, atualizar e cancelar os pedidos para conseguir alugar meu veículo.
+Eu como cliente individual quero criar, modificar, atualizar e cancelar os pedidos para conseguir alugar meu veículo.
 
-Eu como agente quero avaliar e modificar pedidos para gerenciar os alugueis possíveis, assim como registrar os automóveis. 
+Eu como agente quero avaliar e modificar pedidos para gerenciar os alugueis possíveis, assim como registrar os automóveis. Alem disso, eu quero análisar as características financeiras dos pedidos e, se necessário, aprovar a execussão do contrato. Ademais, eu quero registrar os automóveis como propriedade, assim como seus dados de matrícula, ano, marca, modelo e placa.  
+
+Eu como banco agente, quero conceder contratos de crédito para a associação com o aluguel de um automóvel. 
 
 ## Diagrama de Classe
 
