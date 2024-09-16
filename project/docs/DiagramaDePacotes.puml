@@ -1,11 +1,50 @@
 @startuml Pacotes MVC
 
-package model
-package view 
-package controler
+View --> Controller
+' ela está na camada cliente
+Controller --> Service
+Service -> Repository
+' Repository -> Model
+' model é uma camada de apoio, representa a entidade dentro do banco de dados
+' Application classe main
 
-model --> view
+package Model {
+    class Cliente
+    class Agente
+    class Empregador
+    class Pedido
+    class Automovel
+    class Empregador
+}
 
-controler --> view
-view --> controler
+package View {
+}
+
+package Controller {
+    class ClienteController
+    class AgenteController
+    class EmpregadorController
+    class PedidoController
+    class AutomovelController
+    class EmpregadorController
+}
+
+package Service {
+    class ClienteService
+    class AgenteService
+    class EmpregadorService
+    class PedidoService
+    class AutomovelService
+    class EmpregadorService
+}
+
+package Repository {
+    class ClienteRepository
+    class AgenteRepository
+    class EmpregadorRepository
+    class PedidoRepository
+    class AutomovelRepository
+    class EmpregadorRepository
+}
+
 @enduml
