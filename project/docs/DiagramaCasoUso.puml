@@ -1,0 +1,31 @@
+@startuml
+scale 2
+left to right direction
+actor Cliente as Cliente
+actor Agente as Agente
+actor Banco_Agente as Bancario
+
+usecase (Gerenciar pedidos de aluguel) as GerA
+
+usecase (Modificar pedidos) as ModP
+usecase (Avaliar pedidos) as AvaliarP
+usecase (Analisar pedidos) as AnalisarP
+usecase (Executar contrato) as ExecutarC
+usecase (Registrar Propriedade) as RegistraPro
+usecase (Registrar Automovel) as RegistraA
+
+usecase (Conceder Contrato do automovel) as ConcederContrato
+
+Cliente -- GerA
+
+Agente -- ModP
+Agente -- AvaliarP
+Agente -- AnalisarP
+Agente -- ExecutarC
+Agente -- RegistraPro
+Agente -- RegistraA
+
+Bancario -- ConcederContrato
+
+
+@enduml
