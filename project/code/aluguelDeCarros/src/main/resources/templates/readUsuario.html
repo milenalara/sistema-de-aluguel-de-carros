@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Aluguel</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+    <div th:switch="${usuarios}">
+        <h2 th:case="null">Não há Usuarios</h2>
+            <div th:case="*">
+                <h2>Clientes</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Login</th>
+                            <th>Senha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="usuario : ${usuarios}">
+                        <td th:text="${usuario.id}"></td>
+                        <td th:text="${usuario.login}"></td>
+                        <td th:text="${usuario.senha}"></td>
+                        <td><a th:href="@{usuarioEdit/{id}(id=${usuario.id})}">Edit</a></td>
+                        <td><a th:href="@{usuarioDelete/{id}(id=${usuario.id})}">Delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>      
+        <p><a href="/criarUsuario">Novo Usuario</a></p>
+    </div>
+    
+</body>
+</html>
