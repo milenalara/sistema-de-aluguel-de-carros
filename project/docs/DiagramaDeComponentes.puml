@@ -1,0 +1,29 @@
+@startuml diagramaDeComponentes
+skinparam componentStyle uml2
+
+[Usuario] as Usuario
+[Cliente] as Cliente
+[Agente] as Agente
+[Automovel] as Automovel
+[Aluguel] as Aluguel
+[Banco agente] as BA
+[Contrato] as Contrato
+[Pedido] as Pedido
+
+() "Autentificacao" as aut
+
+Usuario -(0-- aut
+
+Agente --0)- Automovel: Fornece
+Automovel --0)- Cliente: Alugado
+Agente --0)- Aluguel: Fornece
+Aluguel --0)- Cliente: Fechado
+
+BA --0)- Contrato: Concede
+Contrato --0)- Agente
+
+Cliente --0)- Pedido: Cria
+Pedido --0)- Agente: Avaliado
+
+
+@enduml
