@@ -13,12 +13,14 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>Login</th>
                             <th>Id</th>
                             <th>CPNJ</th>
                         </tr>
                     </thead>
                     <tbody>
                     <tr th:each="agente : ${agentes}">
+                        <td th:text="${agente.login}"></td>
                         <td th:text="${agente.id}"></td>
                         <td th:text="${agente.cpnj}"></td>
                         <td><a th:href="@{agenteEdit/{id}(id=${agente.id})}">Edit</a></td>

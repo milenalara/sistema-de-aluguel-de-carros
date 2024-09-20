@@ -49,7 +49,7 @@ public class UsuarioController {
         return "updateUsuario";
     }
 
-    @PostMapping("/usuarioUpdate/{id}")
+    @PostMapping("/usuarioEdit/{id}")
     public String updateUsuario(@PathVariable("id") long id, @Valid Usuario usuario,
             BindingResult result, Model model) {
         if (result.hasErrors()) {

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <form action="#"
+      th:action="@{/usuarioEdit/{id}(id=${usuario.id})}"
+      th:object="${usuario}"
+      method="post">
+  <label for="login">Login</label>
+  <input type="text" th:field="*{login}" id="login" placeholder="Login">
+  <label for="senha">Senha</label>
+  <input type="text" th:field="*{senha}" id="senha" placeholder="Senha">
+  <label for="id">Id</label>
+  <input type="number" th:field="*{id}" id="id" placeholder="id">
+
+  <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+  <input type="submit" value="Update cliente">
+</form>
+</body>
+</html>
