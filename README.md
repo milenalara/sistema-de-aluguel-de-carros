@@ -58,6 +58,8 @@ Eu como banco agente, quero conceder contratos de crédito para a associação c
 
 ## Instruções de utilização
 
-1 - Abra o diretório raiz do repositório no terminal de comando e execute o comando `javac -d project/out -sourcepath project/code project/code/App.java` para compilar o programa
+1 - Abra o diretório raiz do repositório no terminal de comando e execute o comando `cd ./project/code/aluguelDeCarros`
 
-2 - Execute o comando `java -cp project/out App` para executar o programa.
+2 - Execute o comando `mvn spring-boot:run` para subir o servidor.
+
+3 - Abra o endereço `http://localhost:8080` no seu navegador de preferência.
