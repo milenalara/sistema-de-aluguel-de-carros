@@ -43,12 +43,21 @@ Eu como agente quero avaliar e modificar pedidos para gerenciar os alugueis poss
 
 Eu como banco agente, quero conceder contratos de crédito para a associação com o aluguel de um automóvel. 
 
-## Diagrama de Classe
-
-<img src="./project/img/DiagramaClasses.png" width="800">
-
 ## Diagrama de Pacotes
 
 <img src="./project/img/DiagramaPacotes.png">
 
+## Diagrama de Componentes
+
+<img src="./project/img/DiagramaDeComponentes.png">
+
+## Diagrama de Classe
+
+<img src="./project/img/DiagramaClasses.png" width="800">
+
+
 ## Instruções de utilização
+
+1 - Abra o diretório raiz do repositório no terminal de comando e execute o comando `javac -d project/out -sourcepath project/code project/code/App.java` para compilar o programa
+
+2 - Execute o comando `java -cp project/out App` para executar o programa.
