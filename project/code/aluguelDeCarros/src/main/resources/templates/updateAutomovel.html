@@ -1,29 +1,39 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
-    <title>Aluguel</title> 
+    <title>Editar Automóvel</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 
+    <h2>Editar Automóvel</h2>
     <form action="#" 
-    th:action="@{automovelUpdate/{id}(id=${automovel.id})}" 
+    th:action="@{/automovelUpdate/{id}(id=${automovel.id})}" 
     th:object="${automovel}" 
     method="post">
       <label for="id">Id</label>
-      <input type="number" th:field="*{id}" id="id" placeholder="id" disabled>
-      <label for="ano">ano</label>
-      <input type="number" th:field="*{ano}" id="ano" placeholder="ano">
-      <label for="matricula">matricula</label>
-      <input type="number" th:field="*{matricula}" id="matricula" placeholder="matricula">
-      <label for="placa">placa</label>
-      <input type="number" th:field="*{placa}" id="placa" placeholder="placa">
-      <option th:each="prorietarioOpt : ${T(br.pucminas.aluguelDeCarros.Proprietario).values()}" 
-      th:value="${prorietarioOpt}" th:text="${prorietarioOpt}"></option>
+      <input type="number" th:field="*{id}" id="id" disabled>
+      
+      <label for="ano">Ano</label>
+      <input type="number" th:field="*{ano}" id="ano">
+      
+      <label for="matricula">Matrícula</label>
+      <input type="text" th:field="*{matricula}" id="matricula">
+      
+      <label for="modelo">Modelo</label>
+      <input type="text" th:field="*{modelo}" id="modelo">
+      
+      <label for="marca">Marca</label>
+      <input type="text" th:field="*{marca}" id="marca">
+      
+      <label for="placa">Placa</label>
+      <input type="text" th:field="*{placa}" id="placa">
 
+      <span th:if="${#fields.hasErrors('placa')}" th:errors="*{placa}"></span>
 
-      <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
-      <input type="submit" value="Update automovel">   
-  </form>
+      <input type="submit" value="Atualizar Automóvel">   
+    </form>
+
+    <a href="/readAutomovel">Voltar para lista</a>
 </body>
 </html>
