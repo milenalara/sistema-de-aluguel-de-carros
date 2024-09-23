@@ -4,6 +4,7 @@ skinparam classAttributeIconSize 0
 Usuario <|.. Agente
 Usuario <|.. Cliente
 Pedido "1" *-- "1" Contrato : contém
+Contrato "1" <-- "1" ContratoFinanceiro 
 Pedido "1" -- "1" Cliente : contém
 Pedido "1" o-- "1" Automovel : contém
 Pedido "*" o-- "1" Agente : contém

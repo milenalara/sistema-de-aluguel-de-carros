@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
-    <title>Aluguel</title> 
+    <title>Usuario</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
@@ -9,7 +9,7 @@
     <div th:switch="${usuarios}">
         <h2 th:case="null">Não há Usuarios</h2>
             <div th:case="*">
-                <h2>Clientes</h2>
+                <h2>Usuarios</h2>
                 <table>
                     <thead>
                         <tr>

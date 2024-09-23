@@ -9,11 +9,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import jakarta.validation.Valid;
+import java.util.Random;
 
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class ClienteController {
+
+    Random random = new Random();
 
     @Autowired
     private ClienteRepository clienteRepository;
@@ -29,6 +32,8 @@ public class ClienteController {
         if (result.hasErrors()) {
             return "criarCliente";
         }
+
+        cliente.setId(random.nextInt(Integer.MAX_VALUE));
 
         clienteRepository.save(cliente);
         return "redirect:/readCliente";
