@@ -51,15 +51,16 @@ public class AutomovelController {
 
     @PostMapping("/automovelUpdate/{id}")
     public String updateAutomovel(@PathVariable("id") long id, @Valid Automovel automovel,
-            BindingResult result, Model model) {
-        if (result.hasErrors()) {
+        BindingResult result, Model model) {
+    if (result.hasErrors()) {
             automovel.setId(id);
-            return "updateAutomovel";
-        }
+        return "updateAutomovel";
+    }
 
         repository.save(automovel);
         return "redirect:/readAutomovel";
     }
+
 
     @GetMapping("/automovelDelete/{id}")
     public String deleteAutomovel(@PathVariable("id") long id, Model model) {
