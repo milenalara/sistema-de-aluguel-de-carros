@@ -9,9 +9,7 @@
 
         <label for="id">Id</label>
         <input type="number" th:field="*{id}" id="id" placeholder="id">
-        <label for="confirmado">Confirmado</label>
-        <input type="checkbox" th:field="*{confirmado}" id="confirmado" placeholder="confirmado">
-        <label for="contrato">Contrato</label>
+
         <input type="text" th:field="*{contrato}" id="contrato" placeholder="contrato">
 
         <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
