@@ -2,6 +2,9 @@ package br.pucminas.aluguelDeCarros.controller;
 
 import br.pucminas.aluguelDeCarros.model.Pedido;
 import br.pucminas.aluguelDeCarros.repository.PedidoRepository;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class PedidoController {
 
@@ -68,5 +71,33 @@ public class PedidoController {
         pedidoRepository.delete(pedido);
         return "redirect:/readPedido";
     }
+
+    @GetMapping("/readPedidoAgente")
+    public String showPedidosAgente(Model model) {
+        model.addAttribute("pedidos", pedidoRepository.findAll());
+        return "readPedidoAgente";
+    }
+
+    @PostMapping("/aprovarPedidos")
+    public String aprovarPedidos(@RequestParam(value = "pedidoIds", required = false) List<Long> pedidoIds) {
+        if (pedidoIds != null) {
+            for (Long pedidoId : pedidoIds) {
+                Pedido pedido = pedidoRepository.findById(pedidoId)
+                        .orElseThrow(() -> new IllegalArgumentException("Pedido inválido Id:" + pedidoId));
+                pedido.setConfirmado(true); // Aprova o pedido
+                pedidoRepository.save(pedido);
+         }
+        }
+        return "redirect:/readPedidoAgente"; // Redireciona para a página do agente
+    }
+
+    @GetMapping("/pedidoDeleteAgente/{id}")
+    public String deletePedidoAgente(@PathVariable("id") long id, Model model) {
+        Pedido pedido = pedidoRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+        pedidoRepository.delete(pedido);
+        return "redirect:/readPedidoAgente";
+    }
+    
 
 }
