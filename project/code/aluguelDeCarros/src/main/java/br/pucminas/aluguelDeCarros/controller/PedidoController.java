@@ -1,9 +1,11 @@
 package br.pucminas.aluguelDeCarros.controller;
 
 import br.pucminas.aluguelDeCarros.model.Pedido;
+import br.pucminas.aluguelDeCarros.repository.ClienteRepository;
 import br.pucminas.aluguelDeCarros.repository.PedidoRepository;
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,8 +20,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class PedidoController {
 
+    Random random = new Random();
+
     @Autowired
     private PedidoRepository pedidoRepository;
+
+    @Autowired
+    private ClienteRepository clienteRepository;
 
     @GetMapping("/criarPedido")
     public String mostrarFormCriarPedido(Pedido pedido) {
@@ -29,9 +36,13 @@ public class PedidoController {
     @PostMapping("/criarPedido")
     public String adicionarPedido(@Valid Pedido pedido, BindingResult result, Model model) {
 
+        model.addAttribute("clientes", clienteRepository.findAll());
+
         if (result.hasErrors()) {
             return "criarPedido";
         }
+
+        pedido.setId(random.nextInt(Integer.MAX_VALUE));
 
         pedidoRepository.save(pedido);
         return "redirect:/readPedido";
@@ -84,11 +95,11 @@ public class PedidoController {
             for (Long pedidoId : pedidoIds) {
                 Pedido pedido = pedidoRepository.findById(pedidoId)
                         .orElseThrow(() -> new IllegalArgumentException("Pedido inválido Id:" + pedidoId));
-                pedido.setConfirmado(true); // Aprova o pedido
+                pedido.setConfirmado(true); 
                 pedidoRepository.save(pedido);
          }
         }
-        return "redirect:/readPedidoAgente"; // Redireciona para a página do agente
+        return "redirect:/readPedidoAgente"; 
     }
 
     @GetMapping("/pedidoDeleteAgente/{id}")
