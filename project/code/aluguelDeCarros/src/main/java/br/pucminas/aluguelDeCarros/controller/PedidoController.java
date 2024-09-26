@@ -17,6 +17,7 @@ import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 @Controller
 public class PedidoController {
 
@@ -35,8 +36,6 @@ public class PedidoController {
 
     @PostMapping("/criarPedido")
     public String adicionarPedido(@Valid Pedido pedido, BindingResult result, Model model) {
-
-        model.addAttribute("clientes", clienteRepository.findAll());
 
         if (result.hasErrors()) {
             return "criarPedido";
@@ -95,11 +94,11 @@ public class PedidoController {
             for (Long pedidoId : pedidoIds) {
                 Pedido pedido = pedidoRepository.findById(pedidoId)
                         .orElseThrow(() -> new IllegalArgumentException("Pedido inválido Id:" + pedidoId));
-                pedido.setConfirmado(true); 
+                pedido.setConfirmado(true);
                 pedidoRepository.save(pedido);
-         }
+            }
         }
-        return "redirect:/readPedidoAgente"; 
+        return "redirect:/readPedidoAgente";
     }
 
     @GetMapping("/pedidoDeleteAgente/{id}")
@@ -109,6 +108,5 @@ public class PedidoController {
         pedidoRepository.delete(pedido);
         return "redirect:/readPedidoAgente";
     }
-    
 
 }

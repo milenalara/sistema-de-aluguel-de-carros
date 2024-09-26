@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Pedido</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+  <form action="#" th:action="@{pedidoUpdate/{id}(id=${pedido.id})}" th:object="${pedido}" method="post">
+
+    <input type="text" th:field="*{contrato}" id="contrato" placeholder="contrato">
+
+    <input type="text" th:field="*{cliente}" id="cliente" placeholder="id do cliente">
+
+    <input type="text" th:field="*{agente}" id="agente" placeholder="id do agente (Opcional)">
+
+    <input type="text" th:field="*{automovel}" id="automovel" placeholder="id do automovel (Opcional)">
+
+
+    <span th:if="${#fields.hasErrors('cpnj')}" th:errors="*{id}"></span>
+    <input type="submit" value="Update pedido">
+  </form>
+  <p><a href="/">Home</a></p>
+</body>
+
+</html>

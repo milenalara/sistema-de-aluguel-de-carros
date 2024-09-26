@@ -17,6 +17,9 @@
                     <tr>
                         <th>Id</th>
                         <th>Contrato</th>
+                        <th>Cliente</th>
+                        <th>Agente</th>
+                        <th>Automovel</th>
                         <th>Confirmado</th>
 
                     </tr>
@@ -25,6 +28,9 @@
                     <tr th:each="pedido : ${pedidos}">
                         <td th:text="${pedido.id}"></td>
                         <td th:text="${pedido.contrato}"></td>
+                        <td th:text="${pedido.cliente != null ? pedido.cliente.nome : 'X'}"></td>
+                        <td th:text="${pedido.agente != null ? pedido.agente.cpnj : 'X'}"></td>
+                        <td th:text="${pedido.automovel != null ? pedido.automovel.modelo : 'X'}"></td>
                         <td th:text="${pedido.confirmado}"></td>
 
                         <td><a th:href="@{pedidoEdit/{id}(id=${pedido.id})}">Edit</a></td>
