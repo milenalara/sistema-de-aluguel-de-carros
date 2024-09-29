@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Aluguel</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+<div th:switch="${pedidos}">
+  <h2 th:case="null">Não há pedidos</h2>
+  <div th:case="*">
+    <h2>Pedidos</h2>
+    <form action="#" th:action="@{/criarContrato}" method="post">
+      <table>
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="pedido : ${pedidos}">
+          <td th:text="${pedido.id}"></td>
+          <td>
+            <a th:href="@{criarContrato/{id}(id=${pedido.id})}">criar contrato</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <input type="submit" value="Gerar contrato">
+    </form>
+  </div>
+  <p><a href="/criarPedido">Novo pedido</a></p>
+</div>
+<p><a href="/">Home</a></p>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Aluguel</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form id="criarContrato" action="#" th:action="@{/criarContrato}" th:object="${contrato}" method="post">
+  <label for="duracao">Duração (meses):</label>
+  <select id="duracao" th:field="*{duracao}">
+    <option value="12">12</option>
+    <option value="24">24</option>
+    <option value="36">36</option>
+    <option value="48">48</option>
+  </select>
+  <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+  <input type="submit" value="Criar contrato">
+</form>
+
+<p><a href="/">Home</a></p>
+</body>
+</html>
