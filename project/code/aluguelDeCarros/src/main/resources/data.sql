@@ -65,3 +65,26 @@ VALUES
     (38, '83210987654', 'Vale', 'Rua Sol 12 - Vila Real', 'sara', 'Sara Vieira Sousa', 'Geóloga', 7800.00, '83210987', '9009'),
     (39, '92109876543', 'Boticário', 'Avenida Plutão 44 - São Miguel', 'marcos', 'Marcos Vinícius Silva', 'Supervisor', 5500.00, '92109876', '1021'),
     (40, '10987654322', 'Lojas Americanas', 'Rua Marte 101 - Bela Vista', 'paula', 'Paula Cristina Oliveira', 'Gerente', 6300.00, '10987654', '1232');
+
+INSERT INTO PEDIDO (id, cliente_id, agente_id, automovel_id, confirmado, contrato)
+VALUES
+    (1, 21, 1, 1, false, null),
+    (2, 22, 2, 2, true, null),
+    (3, 23, 3, 3, false, null),
+    (4, 24, 4, 4, true, null),
+    (5, 25, 5, 5, false, null),
+    (6, 26, 6, 6, true, null),
+    (7, 27, 7, 7, false, null),
+    (8, 28, 8, 8, true, null),
+    (9, 29, 9, 9, false, null),
+    (10, 30, 10, 10, true, null),
+    (11, 31, 11, 11, false, null),
+    (12, 32, 12, 12, true, null),
+    (13, 33, 13, 13, false, null),
+    (14, 34, 14, 14, true, null),
+    (15, 35, 15, 15, false, null),
+    (16, 36, 16, 16, true, null),
+    (17, 37, 17, 17, false, null),
+    (18, 38, 18, 18, true, null),
+    (19, 39, 19, 19, false, null),
+    (20, 40, 20, 20, true, null);
