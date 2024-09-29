@@ -16,12 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class PedidoController {
 
@@ -76,12 +73,18 @@ public class PedidoController {
     public String showUpdateForm(@PathVariable("id") long id, Model model) {
         Pedido pedido = pedidoRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+        List<Cliente> clientes = clienteRepository.findAll();
+        List<Automovel> automoveis = automovelRepository.findAll();
+        List<Agente> agentes = agenteRepository.findAll();
 
+        model.addAttribute("clientes", clientes);
+        model.addAttribute("automoveis", automoveis);
+        model.addAttribute("agentes", agentes);
         model.addAttribute("pedido", pedido);
         return "updatePedido";
     }
 
-    @PostMapping("/pedidoUpdate/{id}")
+    @PostMapping("/pedidoEdit/{id}")
     public String updatePedido(@PathVariable("id") long id, @Valid Pedido pedido,
             BindingResult result, Model model) {
         if (result.hasErrors()) {
@@ -90,7 +93,7 @@ public class PedidoController {
         }
 
         pedidoRepository.save(pedido);
-        return "redirect:/readPedido";
+        return "redirect:/pedidoEdit/{id}";
     }
 
     @GetMapping("/pedidoDelete/{id}")

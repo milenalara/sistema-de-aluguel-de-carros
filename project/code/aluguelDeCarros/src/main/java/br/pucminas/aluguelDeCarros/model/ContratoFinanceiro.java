@@ -9,10 +9,4 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ContratoFinanceiro extends Contrato {
-  Boolean clienteCompraVeiculo;
-
-  public ContratoFinanceiro() {
-    super();
-    clienteCompraVeiculo = false;
-  }
 }
