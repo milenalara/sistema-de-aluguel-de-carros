@@ -58,7 +58,7 @@ class Pedido {
     -agente : Agente
     -cliente : Cliente
     -automovel : Automovel
-    -contrato : String
+    -contrato : ContratoFinanceiro
 }
 
 class Automovel {
@@ -69,5 +69,14 @@ class Automovel {
     -modelo : String
     -placa : String
     -proprietario : User
+}
+
+class Contrato {
+    -id: Long
+    -duracao: Integer
+}
+
+class ContratoFinanceiro {
+    -clienteCompraVeiculo: Boolean
 }
 @enduml
