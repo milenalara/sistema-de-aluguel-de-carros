@@ -13,13 +13,13 @@ public class Pedido {
     @Column(name = "confirmado", nullable = false)
     private boolean confirmado;
 
-    @Column(name = "contrato",length = 50, nullable = true)
-    private String contrato;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "contrato_id")
+    private ContratoFinanceiro contrato;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
-
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "agente_id")
@@ -79,13 +79,11 @@ public class Pedido {
         this.automovel = automovel;
     }
 
-
-    public String getContrato() {
+    public ContratoFinanceiro getContrato() {
         return contrato;
     }
 
-
-    public void setContrato(String contrato) {
+    public void setContrato(ContratoFinanceiro contrato) {
         this.contrato = contrato;
     }
 

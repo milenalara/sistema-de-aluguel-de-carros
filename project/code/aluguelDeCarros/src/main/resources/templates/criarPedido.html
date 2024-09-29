@@ -1,15 +1,14 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> 
-    <title>Aluguel</title> 
+<head>
+    <title>Aluguel</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <form action="#" th:action="@{/criarPedido}" th:object="${pedido}" method="post">
-
+    <form id="criarPedido" action="#" th:action="@{/criarPedido}" th:object="${pedido}" method="post">
         <select th:field="*{cliente}">
-            <option th:each="cliente : ${clientes}" 
-                    th:value="${cliente.id}" 
+            <option th:each="cliente : ${clientes}"
+                    th:value="${cliente.id}"
                     th:text="${cliente.nome}">
             </option>
         </select>
@@ -28,10 +27,8 @@
             </option>
         </select>
 
-
-
         <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
-        <input type="submit" value="Add pedido">   
+        <input type="submit" value="Add pedido">
     </form>
     <p><a href="/">Home</a></p>
 </body>

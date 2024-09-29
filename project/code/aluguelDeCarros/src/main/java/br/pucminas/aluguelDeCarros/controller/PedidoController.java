@@ -1,13 +1,7 @@
 package br.pucminas.aluguelDeCarros.controller;
 
-import br.pucminas.aluguelDeCarros.model.Agente;
-import br.pucminas.aluguelDeCarros.model.Automovel;
-import br.pucminas.aluguelDeCarros.model.Cliente;
-import br.pucminas.aluguelDeCarros.model.Pedido;
-import br.pucminas.aluguelDeCarros.repository.AgenteRepository;
-import br.pucminas.aluguelDeCarros.repository.AutomovelRepository;
-import br.pucminas.aluguelDeCarros.repository.ClienteRepository;
-import br.pucminas.aluguelDeCarros.repository.PedidoRepository;
+import br.pucminas.aluguelDeCarros.model.*;
+import br.pucminas.aluguelDeCarros.repository.*;
 
 import java.util.List;
 import java.util.Random;
@@ -26,7 +20,6 @@ public class PedidoController {
 
     @Autowired
     private PedidoRepository pedidoRepository;
-
     @Autowired
     private ClienteRepository clienteRepository;
     @Autowired
@@ -43,6 +36,7 @@ public class PedidoController {
         model.addAttribute("clientes", clientes);
         model.addAttribute("automoveis", automoveis);
         model.addAttribute("agentes", agentes);
+        model.addAttribute("contrato", new Contrato());
         model.addAttribute("pedido", new Pedido());
 
         return "criarPedido";
@@ -57,10 +51,11 @@ public class PedidoController {
             return "criarPedido";
         }
 
-        pedido.setId(random.nextInt(Integer.MAX_VALUE));
+        int id = random.nextInt(Integer.MAX_VALUE);
+        pedido.setId(id);
 
         pedidoRepository.save(pedido);
-        return "redirect:/readPedido";
+        return "redirect:/criarContrato/" + id;
     }
 
     @GetMapping("/readPedido")
@@ -130,6 +125,23 @@ public class PedidoController {
         pedidoRepository.delete(pedido);
         return "redirect:/readPedidoAgente";
     }
-    
 
+    @GetMapping("/readPedidoBanco")
+    public String showPedidosBanco(Model model) {
+        model.addAttribute("pedidos", pedidoRepository.findAll());
+        return "readPedidoBanco";
+    }
+
+    @PostMapping("/concederContrato")
+    public String concederContrato(@RequestParam(value = "pedidoIds", required = false) List<Long> pedidoIds) {
+        if (pedidoIds != null) {
+            for (Long pedidoId : pedidoIds) {
+                Pedido pedido = pedidoRepository.findById(pedidoId)
+                    .orElseThrow(() -> new IllegalArgumentException("Pedido inválido Id:" + pedidoId));
+                pedido.setConfirmado(true);
+                pedidoRepository.save(pedido);
+            }
+        }
+        return "redirect:/readPedidoAgente";
+    }
 }

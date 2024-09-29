@@ -26,6 +26,9 @@ public class Automovel {
     @Column(name = "placa", length = 50, nullable = false, unique = true)
     private String placa;
 
+    @Column(name = "proprietario", length = 50, nullable = true)
+    private Proprietario proprietario;
+
     public long getId() {
         return id;
     }

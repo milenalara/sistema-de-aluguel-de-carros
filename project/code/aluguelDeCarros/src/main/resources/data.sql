@@ -66,7 +66,7 @@ VALUES
     (39, '92109876543', 'Boticário', 'Avenida Plutão 44 - São Miguel', 'marcos', 'Marcos Vinícius Silva', 'Supervisor', 5500.00, '92109876', '1021'),
     (40, '10987654322', 'Lojas Americanas', 'Rua Marte 101 - Bela Vista', 'paula', 'Paula Cristina Oliveira', 'Gerente', 6300.00, '10987654', '1232');
 
-INSERT INTO PEDIDO (id, cliente_id, agente_id, automovel_id, confirmado, contrato)
+INSERT INTO PEDIDO (id, cliente_id, agente_id, automovel_id, confirmado, contrato_id)
 VALUES
     (1, 21, 1, 1, false, null),
     (2, 22, 2, 2, false, null),
