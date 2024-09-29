@@ -13,7 +13,7 @@ public class Pedido {
     @Column(name = "confirmado", nullable = false)
     private boolean confirmado;
 
-    @Column(name = "contrato",length = 50, nullable = false)
+    @Column(name = "contrato",length = 50, nullable = true)
     private String contrato;
 
     @ManyToOne(fetch = FetchType.LAZY)
