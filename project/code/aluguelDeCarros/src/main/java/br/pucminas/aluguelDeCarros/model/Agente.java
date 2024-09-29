@@ -8,8 +8,8 @@ import jakarta.persistence.*;
 @Table(name = "agente")
 public class Agente extends Usuario{
 
-    @Column(name = "cpnj", length = 50, nullable = false)
-    private String cpnj;
+    @Column(name = "cnpj", length = 50, nullable = false)
+    private String cnpj;
 
     @Enumerated(EnumType.STRING)
     private TipoAgente tipo;
@@ -34,11 +34,11 @@ public class Agente extends Usuario{
     }
 
     public String getCpnj() {
-        return cpnj;
+        return cnpj;
     }
 
     public void setCpnj(String cpnj) {
-        this.cpnj = cpnj;
+        this.cnpj = cpnj;
     }
 
     
