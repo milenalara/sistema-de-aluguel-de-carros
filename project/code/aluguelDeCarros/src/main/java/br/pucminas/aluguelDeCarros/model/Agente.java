@@ -11,6 +11,9 @@ public class Agente extends Usuario{
     @Column(name = "cnpj", length = 50, nullable = false)
     private String cnpj;
 
+    @Column(name = "nome", length = 50, nullable = false)
+    private String nome;
+
     @Enumerated(EnumType.STRING)
     private TipoAgente tipo;
 
@@ -41,6 +44,11 @@ public class Agente extends Usuario{
         this.cnpj = cpnj;
     }
 
-    
-    
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }

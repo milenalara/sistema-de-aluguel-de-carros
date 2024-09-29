@@ -32,6 +32,9 @@ public class Cliente extends Usuario{
     @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Pedido> pedidos = new ArrayList<>();
 
+    public Cliente() {
+        super();
+    }
     public String getNome() {
         return nome;
     }

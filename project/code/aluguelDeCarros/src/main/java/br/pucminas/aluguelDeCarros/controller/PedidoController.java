@@ -1,6 +1,11 @@
 package br.pucminas.aluguelDeCarros.controller;
 
+import br.pucminas.aluguelDeCarros.model.Agente;
+import br.pucminas.aluguelDeCarros.model.Automovel;
+import br.pucminas.aluguelDeCarros.model.Cliente;
 import br.pucminas.aluguelDeCarros.model.Pedido;
+import br.pucminas.aluguelDeCarros.repository.AgenteRepository;
+import br.pucminas.aluguelDeCarros.repository.AutomovelRepository;
 import br.pucminas.aluguelDeCarros.repository.ClienteRepository;
 import br.pucminas.aluguelDeCarros.repository.PedidoRepository;
 
@@ -27,9 +32,22 @@ public class PedidoController {
 
     @Autowired
     private ClienteRepository clienteRepository;
+    @Autowired
+    private AutomovelRepository automovelRepository;
+    @Autowired
+    private AgenteRepository agenteRepository;
 
     @GetMapping("/criarPedido")
-    public String mostrarFormCriarPedido(Pedido pedido) {
+    public String mostrarFormCriarPedido(Model model) {
+        List<Cliente> clientes = clienteRepository.findAll();
+        List<Automovel> automoveis = automovelRepository.findAll();
+        List<Agente> agentes = agenteRepository.findAll();
+
+        model.addAttribute("clientes", clientes);
+        model.addAttribute("automoveis", automoveis);
+        model.addAttribute("agentes", agentes);
+        model.addAttribute("pedido", new Pedido());
+
         return "criarPedido";
     }
 
