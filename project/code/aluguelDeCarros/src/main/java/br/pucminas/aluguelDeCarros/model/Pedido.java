@@ -13,21 +13,21 @@ public class Pedido {
     @Column(name = "confirmado", nullable = false)
     private boolean confirmado;
 
-    @Column(name = "contrato",length = 50, nullable = false)
+    @Column(name = "contrato",length = 50, nullable = true)
     private String contrato;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cliente.id")
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "agente.id")
+    @JoinColumn(name = "agente_id")
     private Agente agente;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "automovel.id")
+    @JoinColumn(name = "automovel_id")
     private Automovel automovel;
 
 

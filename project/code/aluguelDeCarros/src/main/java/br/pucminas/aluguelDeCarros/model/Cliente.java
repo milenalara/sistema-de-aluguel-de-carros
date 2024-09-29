@@ -27,11 +27,14 @@ public class Cliente extends Usuario{
     private String empregador;
 
     @Column(name = "rendimentos", length = 50, nullable = false)
-    private String rendimentos;
+    private Double rendimentos;
 
     @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Pedido> pedidos = new ArrayList<>();
 
+    public Cliente() {
+        super();
+    }
     public String getNome() {
         return nome;
     }
@@ -80,11 +83,11 @@ public class Cliente extends Usuario{
         this.empregador = empregador;
     }
 
-    public String getRendimentos() {
+    public Double getRendimentos() {
         return rendimentos;
     }
 
-    public void setRendimentos(String rendimentos) {
+    public void setRendimentos(Double rendimentos) {
         this.rendimentos = rendimentos;
     }
 

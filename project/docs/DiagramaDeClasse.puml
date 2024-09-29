@@ -1,8 +1,8 @@
-@startuml Diagrama
+@startuml
 skinparam classAttributeIconSize 0
 
 Usuario <|.. Agente
-Usuario <|.. Cliente
+Usuario <|.. Pedido : contém
 Pedido "1" *-- "1" Contrato : contém
 Contrato "1" <-- "1" ContratoFinanceiro 
 Pedido "1" -- "1" Cliente : contém
@@ -58,7 +58,7 @@ class Pedido {
     -agente : Agente
     -cliente : Cliente
     -automovel : Automovel
-    -contrato : String
+    -contrato : ContratoFinanceiro
 }
 
 class Automovel {
@@ -71,4 +71,12 @@ class Automovel {
     -proprietario : User
 }
 
+class Contrato {
+    -id: Long
+    -duracao: Integer
+}
+
+class ContratoFinanceiro {
+    -clienteCompraVeiculo: Boolean
+}
 @enduml

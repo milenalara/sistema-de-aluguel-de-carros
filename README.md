@@ -60,6 +60,6 @@ Eu como banco agente, quero conceder contratos de crédito para a associação c
 
 1 - Abra o diretório raiz do repositório no terminal de comando e execute o comando `cd ./project/code/aluguelDeCarros`
 
-2 - Execute o comando `mvn spring-boot:run` para subir o servidor.
+2 - Execute o comando `mvn spring-boot:run` para rodar o servidor.
 
 3 - Abra o endereço `http://localhost:8080` no seu navegador de preferência.

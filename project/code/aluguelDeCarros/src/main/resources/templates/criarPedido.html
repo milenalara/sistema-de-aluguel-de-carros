@@ -7,13 +7,28 @@
 <body>
     <form action="#" th:action="@{/criarPedido}" th:object="${pedido}" method="post">
 
-        <input type="text" th:field="*{contrato}" id="contrato" placeholder="contrato">
+        <select th:field="*{cliente}">
+            <option th:each="cliente : ${clientes}" 
+                    th:value="${cliente.id}" 
+                    th:text="${cliente.nome}">
+            </option>
+        </select>
 
-        <input type="text" th:field="*{cliente}" id="cliente" placeholder="id do cliente">
-        
-        <input type="text" th:field="*{agente}" id="agente" placeholder="id do agente (Opcional)">
-        
-        <input type="text" th:field="*{automovel}" id="automovel" placeholder="id do automovel (Opcional)">
+        <select th:field="*{automovel}">
+            <option th:each="automovel : ${automoveis}"
+                    th:value="${automovel.id}"
+                    th:text="${automovel.modelo}">
+            </option>
+        </select>
+
+        <select th:field="*{agente}">
+            <option th:each="agente : ${agentes}"
+                    th:value="${agente.id}"
+                    th:text="${agente.nome}">
+            </option>
+        </select>
+
+
 
         <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
         <input type="submit" value="Add pedido">   
