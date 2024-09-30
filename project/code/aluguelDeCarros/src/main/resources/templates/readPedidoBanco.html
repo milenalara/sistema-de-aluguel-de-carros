@@ -4,6 +4,27 @@
 <head>
     <title>Aluguel</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script>
+        function submitForms(event) {
+            event.preventDefault();
+            const createContratoForm = document.getElementById('create-contrato');
+            const updatePedidoForm = document.getElementById('update-pedido');
+
+            const formData = new FormData(createContratoForm);
+            fetch(createContratoForm.action, {
+                method: 'POST',
+                body: formData
+            }).then(response => {
+                if (response.ok) {
+                    updatePedidoForm.submit();
+                } else {
+                    console.error('Failed to submit create-contrato form');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -15,20 +36,36 @@
             <table>
                 <thead>
                 <tr>
+                    <th>IdPedido</th>
                     <th>IdContrato</th>
                     <th>Confirmado</th>
-                    <th>Ações</th>
+                    <th>Duração (meses)</th>
+                    <th>Ação</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="pedido : ${pedidos}">
                     <td th:text="${pedido.id}"></td>
+                    <td th:text="${pedido.contrato != null ? pedido.contrato.id : 'Sem contrato'}"></td>
                     <td th:text="${pedido.confirmado}"></td>
                     <td>
-                        <form th:action="@{/criarContrato/{id}(id=${pedido.id})}" method="post">
+                        <form id="create-contrato" th:action="@{/criarContrato/{id}(id=${pedido.id})}" method="post">
+                            <label for="duracao"></label>
+                            <select id="duracao" th:field="*{contrato.duracao}">
+                                <option value="12">12</option>
+                                <option value="24">24</option>
+                                <option value="36">36</option>
+                                <option value="48">48</option>
+                            </select>
                             <input type="hidden" th:value="${pedido.id}" name="pedidoId"/>
-                            <input type="submit" value="Criar contrato"/>
+<!--                            <input type="submit" value="Criar contrato"/>-->
                         </form>
+                        <form id="update-pedido" th:action="@{/updatePedidoContrato/{id}(id=${pedido.id})}" method="post">
+                            <input type="hidden" th:value="${contrato.id}"/>
+                        </form>
+                    </td>
+                    <td>
+                        <button type="button" onclick="submitForms(event)">Criar contrato</button>
                     </td>
                 </tr>
                 </tbody>

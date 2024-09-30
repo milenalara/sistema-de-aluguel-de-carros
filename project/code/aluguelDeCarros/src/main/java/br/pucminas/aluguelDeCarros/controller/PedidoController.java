@@ -1,13 +1,7 @@
 package br.pucminas.aluguelDeCarros.controller;
 
-import br.pucminas.aluguelDeCarros.model.Agente;
-import br.pucminas.aluguelDeCarros.model.Automovel;
-import br.pucminas.aluguelDeCarros.model.Cliente;
-import br.pucminas.aluguelDeCarros.model.Pedido;
-import br.pucminas.aluguelDeCarros.repository.AgenteRepository;
-import br.pucminas.aluguelDeCarros.repository.AutomovelRepository;
-import br.pucminas.aluguelDeCarros.repository.ClienteRepository;
-import br.pucminas.aluguelDeCarros.repository.PedidoRepository;
+import br.pucminas.aluguelDeCarros.model.*;
+import br.pucminas.aluguelDeCarros.repository.*;
 
 import java.util.List;
 import java.util.Random;
@@ -26,14 +20,14 @@ public class PedidoController {
 
     @Autowired
     private PedidoRepository pedidoRepository;
-
     @Autowired
     private ClienteRepository clienteRepository;
     @Autowired
     private AutomovelRepository automovelRepository;
     @Autowired
     private AgenteRepository agenteRepository;
-
+    @Autowired
+    private ContratoRepository contratoRepository;
     @GetMapping("/criarPedido")
     public String mostrarFormCriarPedido(Model model) {
         List<Cliente> clientes = clienteRepository.findAll();
@@ -132,21 +126,30 @@ public class PedidoController {
     @GetMapping("/readPedidoBanco")
     public String showPedidosBanco(Model model) {
         List<Pedido> pedidos = pedidoRepository.findPedidosByConfirmado(true);
+        model.addAttribute("contrato", new ContratoFinanceiro());
         model.addAttribute("pedidos", pedidos);
         return "readPedidoBanco";
     }
 
-//    @PostMapping("/aprovarPedidos")
-//    public String aprovarPedidos(@RequestParam(value = "pedidoIds", required = false) List<Long> pedidoIds) {
-//        if (pedidoIds != null) {
-//            for (Long pedidoId : pedidoIds) {
-//                Pedido pedido = pedidoRepository.findById(pedidoId)
-//                    .orElseThrow(() -> new IllegalArgumentException("Pedido inválido Id:" + pedidoId));
-//                pedido.setConfirmado(true);
-//                pedidoRepository.save(pedido);
-//            }
-//        }
-//        return "redirect:/readPedidoAgente";
-//    }
+    @PostMapping("/updatePedidoContrato/{pedido_id}")
+    public String updatePedidoContrato(@PathVariable("pedido_id") long id, @Valid ContratoFinanceiro contrato,
+            BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            contrato.setId(id);
+            return "updatePedidoContrato";
+        }
+
+        contrato.setId((long) random.nextInt(Integer.MAX_VALUE));
+        contratoRepository.save(contrato);
+
+        Pedido pedido = pedidoRepository.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+
+        pedido.setContrato(contrato);
+        pedidoRepository.save(pedido);
+        return "redirect:/readPedidoBanco";
+    }
+
+
 
 }
