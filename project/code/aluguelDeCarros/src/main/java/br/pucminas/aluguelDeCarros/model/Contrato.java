@@ -9,7 +9,7 @@ public class Contrato {
   @Column(name = "id", nullable = false)
   Long id;
 
-  @Column(name = "duracao", nullable = false)
+  @Column(name = "duracao")
   Integer duracao;
 
   public Long getId() {
