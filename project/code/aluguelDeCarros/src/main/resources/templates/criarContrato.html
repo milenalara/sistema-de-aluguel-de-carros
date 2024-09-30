@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Contrato</title>
+</head>
+<body>
+<h1>Criar Contrato</h1>
+<form th:action="@{/criarContrato/{id}(id=${pedido.id})}" th:object="${contrato}" method="post">
+    <input type="hidden" th:field="*{pedido.id}" th:value="${pedido.id}"/>
+    <div>
+        <label for="duracao">Valor:</label>
+        <input type="number" id="duracao" th:field="*{contrato.duracao}" />
+    </div>
+    <div>
+        <button type="submit">Criar Contrato</button>
+    </div>
+</form>
+<p><a href="/">Home</a></p>
+</body>
+</html>

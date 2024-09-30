@@ -129,4 +129,24 @@ public class PedidoController {
         return "redirect:/readPedidoAgente";
     }
 
+    @GetMapping("/readPedidoBanco")
+    public String showPedidosBanco(Model model) {
+        List<Pedido> pedidos = pedidoRepository.findPedidosByConfirmado(true);
+        model.addAttribute("pedidos", pedidos);
+        return "readPedidoBanco";
+    }
+
+//    @PostMapping("/aprovarPedidos")
+//    public String aprovarPedidos(@RequestParam(value = "pedidoIds", required = false) List<Long> pedidoIds) {
+//        if (pedidoIds != null) {
+//            for (Long pedidoId : pedidoIds) {
+//                Pedido pedido = pedidoRepository.findById(pedidoId)
+//                    .orElseThrow(() -> new IllegalArgumentException("Pedido inválido Id:" + pedidoId));
+//                pedido.setConfirmado(true);
+//                pedidoRepository.save(pedido);
+//            }
+//        }
+//        return "redirect:/readPedidoAgente";
+//    }
+
 }

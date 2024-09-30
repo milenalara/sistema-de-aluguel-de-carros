@@ -68,9 +68,9 @@ VALUES
 
 INSERT INTO PEDIDO (id, cliente_id, agente_id, automovel_id, confirmado, contrato)
 VALUES
-    (1, 21, 1, 1, false, null),
-    (2, 22, 2, 2, false, null),
-    (3, 23, 3, 3, false, null),
+    (1, 21, 1, 1, true, null),
+    (2, 22, 2, 2, true, null),
+    (3, 23, 3, 3, true, null),
     (4, 24, 4, 4, false, null),
     (5, 25, 5, 5, false, null),
     (6, 26, 6, 6, false, null),
