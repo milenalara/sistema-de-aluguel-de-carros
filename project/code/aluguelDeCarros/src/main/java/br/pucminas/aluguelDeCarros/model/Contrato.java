@@ -11,4 +11,20 @@ public class Contrato {
 
   @Column(name = "duracao", nullable = false)
   Integer duracao;
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public Integer getDuracao() {
+    return duracao;
+  }
+
+  public void setDuracao(Integer duracao) {
+    this.duracao = duracao;
+  }
 }
