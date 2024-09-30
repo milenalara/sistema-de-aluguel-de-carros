@@ -1,6 +1,6 @@
 # Sistema de Aluguel de Carros
 
-Este projeto é um protótipo de aplicação de sistema de aluguel de carros, desenvolvido em interface de linha de comando utilizando a linguagem Java.
+Este projeto é um protótipo de aplicação de sistema de aluguel de carros, desenvolvido em Spring Boot.
 
 Trata-se de um projeto acadêmico desenvolvido para a disciplina de Laboratório de Desenvolvimento de Software, do curso de Engenharia de Software da Pontifícia Universidade Católica de Minas Gerais (PUC Minas).
 
