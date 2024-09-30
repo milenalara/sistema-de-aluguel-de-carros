@@ -27,7 +27,7 @@
                 <tbody>
                     <tr th:each="pedido : ${pedidos}">
                         <td th:text="${pedido.id}"></td>
-                        <td th:text="${pedido.contrato}"></td>
+                        <td th:text="${pedido.contrato!= null ? pedido.contrato.id : 'X'}"></td>
                         <td th:text="${pedido.cliente != null ? pedido.cliente.nome : 'X'}"></td>
                         <td th:text="${pedido.agente != null ? pedido.agente.cpnj : 'X'}"></td>
                         <td th:text="${pedido.automovel != null ? pedido.automovel.modelo : 'X'}"></td>
